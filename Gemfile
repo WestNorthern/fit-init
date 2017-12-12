@@ -62,3 +62,7 @@ gem 'devise'
 
 
 gem 'foundation-rails'
+
+gem 'jquery-rails'
+
+gem 'jquery-turbolinks'
