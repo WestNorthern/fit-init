@@ -66,3 +66,5 @@ gem 'foundation-rails'
 gem 'jquery-rails'
 
 gem 'jquery-turbolinks'
+
+gem 'foundation-icons-sass-rails'
