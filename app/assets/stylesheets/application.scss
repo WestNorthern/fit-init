@@ -1,5 +1,14 @@
 
 @import "foundation_and_overrides";
 /* Add imports of custom sass/scss files here */
-
+@import 'foundation-icons';
 @import 'layout';
+
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px aliceblue inset;
+}
+
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 30px ghostwhite inset;
+}

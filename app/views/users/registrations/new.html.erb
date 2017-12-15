@@ -1,20 +1,21 @@
-<div class="container">
-  <div class="row">
-    <div class="account col s9 offset-s2">
+<div class="grid-container fluid">
+  <div class="grid-x">
+    <div class="cell small-2"></div>
+    <div class="cell small-8 text-center">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { multipart: true }) do |f| %>
         <%= devise_error_messages! %>
 
           <div class="field">
             <%= f.label :username %><br />
-            <i class="tiny material-icons red-text" id="username_fail">sentiment_very_dissatisfied</i>
-            <i class="tiny material-icons green-text" id="username_win">sentiment_very_satisfied</i>
+            <i class="fi-x" id="username_fail" style="display: none; color: red;">Taken</i>
+            <i class="fi-check" id="username_win" style="display: none; color: green;">Available!</i>
             <%= f.text_field :username, :class => 'validate', id: 'new_username' %>
           </div>
 
           <div class="field">
             <%= f.label :email %><br />
-            <i class="tiny material-icons red-text" id="email_fail">sentiment_very_dissatisfied</i>
-            <i class="tiny material-icons green-text" id="email_win">sentiment_very_satisfied</i>
+            <i class="fi-x" id="email_fail" style="display: none; color: red;">Already in Use . . .</i>
+            <i class="fi-check" id="email_win" style="display: none; color: green;">You're good!</i>
             <%= f.email_field :email, :class => 'validate', id: 'new_email' %>
           </div>
 
@@ -32,7 +33,7 @@
         </div>
 
         <div class="actions">
-          <%= f.submit "Sign up", class: 'waves-effect waves-light btn' %>
+          <%= f.submit "Sign up", class: "hollow button secondary" %>
         </div>
       <% end %>
 
