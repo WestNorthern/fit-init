@@ -1,5 +1,9 @@
 <h1>Yo, what it do <%= current_user.username %>?</h1>
+<div class="row">
+	<div class="grid-x">
+		<div class="small-1 columns"></div>
+		<div id="clockbar" class="small-10 columns text-center"></div>
+		<%= javascript_pack_tag 'clockbar' %>
+	</div>
+</div>
 
-<div id="clockbar"></div>
-
-<%= javascript_pack_tag 'clockbar' %>
