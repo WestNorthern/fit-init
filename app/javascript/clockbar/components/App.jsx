@@ -1,13 +1,36 @@
 import React from "react"
 
 class App extends React.Component {
-  render () {
-    return (
-      <div>
-        <div>It's working.</div>
-      </div>
+	constructor(props) {
+    super(props);
+    var date= this.getTimeString();
+    this.state= {
+      time: date
+    }
+  }
+  getTimeString() {
+    const date = new Date(Date.now()).toLocaleTimeString();
+    return date;
+  }
+  componentDidMount() {
+    const _this = this;
+    this.timer = setInterval(function(){
+      var date = _this.getTimeString();
+      _this.setState({
+        time: date
+      })
+    },1000)
+  }
+  componentWillUnmount() {
+      clearInterval(this.timer);
+  }
+  render() {
+    return(
+      <p>{this.state.time}</p>
     );
   }
 }
 
 export default App
+
+
