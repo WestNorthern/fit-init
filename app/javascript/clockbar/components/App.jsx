@@ -1,5 +1,6 @@
 import React from "react"
 import Hour from "./Hour"
+import WorkoutButton from "./WorkoutButton"
 
 class App extends React.Component {
 	constructor(props) {
@@ -17,14 +18,6 @@ class App extends React.Component {
   getLastThree() {
   	var lastThreeArr = [];
   	const currentTime = new Date(Date.now()).getHours();
-  	function AMorPM() {
-  		if (currentTime < 12){
-  			return 'AM';
-  		}
-  		else{
-  			return 'PM';
-  		}
-  	};
 
   	var x = 3;
   	while (x > 0) {
@@ -51,14 +44,6 @@ class App extends React.Component {
   getNextThree() {
   	var nextThreeArr = [];
   	const currentTime = new Date(Date.now()).getHours();
-  	function AMorPM() {
-  		if (currentTime < 12){
-  			return 'AM';
-  		}
-  		else{
-  			return 'PM';
-  		}
-  	};
 
   	var x = 0;
   	while (x < 3) {
@@ -108,15 +93,18 @@ class App extends React.Component {
 
   render() {
     return(
-    	<div className="clockbar-wrapper grid-x">
+    	<div className="clockbar-wrapper">
+    		<div className="grid-x">
+	    		<div className="hours-wrapper small-5 columns grid-x"> {this.state.pastThreeHours.map( hour => <Hour hour={hour} key={hour} /> ) } </div>
 
-    		<div className="hours-wrapper small-5 columns grid-x"> {this.state.pastThreeHours.map( hour => <Hour hour={hour} key={hour} /> ) } </div>
+	      	<div className="current-time small-2 columns">{this.state.time}</div>
 
-      	<div className="current-time small-2 columns">{this.state.time}</div>
-
-      	<div className="hours-wrapper small-5 columns grid-x"> {this.state.nextThreeHours.map( hour => <Hour hour={hour} key={hour} /> ) } </div>
-
-
+	      	<div className="hours-wrapper small-5 columns grid-x"> {this.state.nextThreeHours.map( hour => <Hour hour={hour} key={hour} /> ) } </div>
+      	</div>
+      	<br/>
+      	<div className="text-center">
+      		<WorkoutButton />
+      	</div>
       </div>
     );
   }
