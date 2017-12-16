@@ -6,7 +6,7 @@ class Hour extends React.Component {
   }
   render() {
     return(
-    	<div className="hour-bar">
+    	<div className="hour-bar small-4 columns">
       	{this.props.hour}
       </div>
     );

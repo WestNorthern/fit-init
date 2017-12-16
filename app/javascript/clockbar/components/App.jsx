@@ -108,13 +108,13 @@ class App extends React.Component {
 
   render() {
     return(
-    	<div className="clockbar-wrapper">
+    	<div className="clockbar-wrapper grid-x">
 
-    		<div className="hours-wrapper"> {this.state.pastThreeHours.map( hour => <Hour hour={hour} key={hour} /> ) } </div>
+    		<div className="hours-wrapper small-4 columns grid-x"> {this.state.pastThreeHours.map( hour => <Hour hour={hour} key={hour} /> ) } </div>
 
-      	<p>{this.state.time}</p>
+      	<div className="currentTime small-4 columns">{this.state.time}</div>
 
-      	<div className="hours-wrapper"> {this.state.nextThreeHours.map( hour => <Hour hour={hour} key={hour} /> ) } </div>
+      	<div className="hours-wrapper small-4 columns grid-x"> {this.state.nextThreeHours.map( hour => <Hour hour={hour} key={hour} /> ) } </div>
 
 
       </div>
