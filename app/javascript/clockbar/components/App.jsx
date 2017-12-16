@@ -6,37 +6,106 @@ class App extends React.Component {
     super(props);
     var date= this.getTimeString();
     var pastThree= this.getLastThree();
+    var nextThree= this.getNextThree();
     this.state= {
       time: date,
-      pastThreeHours: pastThree
+      pastThreeHours: pastThree,
+      nextThreeHours: nextThree
     }
   }
+
   getLastThree() {
   	var lastThreeArr = [];
   	const currentTime = new Date(Date.now()).getHours();
+  	function AMorPM() {
+  		if (currentTime < 12){
+  			return 'AM';
+  		}
+  		else{
+  			return 'PM';
+  		}
+  	};
+
   	var x = 3;
   	while (x > 0) {
-  		lastThreeArr.push(currentTime - x)
+  		lastThreeArr.push(currentTime - x);
   		x--;
   	};
-  	return lastThreeArr;
+  	return lastThreeArr.map( x => {
+  		if (x == 0){
+  			return '12 AM';
+  		}
+  		else if (x == 12){
+  			return '12 PM';
+  		}
+  		else if (x > 12){
+  			x = x % 12;
+  			return x + ' PM'
+  		}
+  		else{
+  			return x + ' AM'
+  		}
+  	});
   }
+
+  getNextThree() {
+  	var nextThreeArr = [];
+  	const currentTime = new Date(Date.now()).getHours();
+  	function AMorPM() {
+  		if (currentTime < 12){
+  			return 'AM';
+  		}
+  		else{
+  			return 'PM';
+  		}
+  	};
+
+  	var x = 0;
+  	while (x < 3) {
+  		nextThreeArr.push(currentTime + 1 + x);
+  		x++;
+  	};
+  	
+  	return nextThreeArr.map( x => {
+  		if (x == 0){
+  			return '12 AM';
+  		}
+  		else if (x == 12){
+  			return '12 PM';
+  		}
+  		else if (x > 12){
+  			x = x % 12;
+  			return x + ' PM'
+  		}
+  		else{
+  			return x + ' AM'
+  		}
+  	});
+  }
+
   getTimeString() {
     const date = new Date(Date.now()).toLocaleTimeString();
     return date;
   }
+
   componentDidMount() {
     const _this = this;
     this.timer = setInterval(function(){
       var date = _this.getTimeString();
+      var pastThree= _this.getLastThree();
+    	var nextThree= _this.getNextThree();
       _this.setState({
-        time: date
+        time: date,
+        pastThreeHours: pastThree,
+      	nextThreeHours: nextThree
       })
     },1000)
   }
+
   componentWillUnmount() {
       clearInterval(this.timer);
   }
+
   render() {
     return(
     	<div className="clockbar-wrapper">
@@ -44,6 +113,9 @@ class App extends React.Component {
     		<div className="hours-wrapper"> {this.state.pastThreeHours.map( hour => <Hour hour={hour} key={hour} /> ) } </div>
 
       	<p>{this.state.time}</p>
+
+      	<div className="hours-wrapper"> {this.state.nextThreeHours.map( hour => <Hour hour={hour} key={hour} /> ) } </div>
+
 
       </div>
     );
