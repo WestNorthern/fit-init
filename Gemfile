@@ -72,3 +72,5 @@ gem 'foundation-icons-sass-rails'
 gem 'webpacker'
 
 gem 'react-rails'
+
+gem 'restful_routing'
