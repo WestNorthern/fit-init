@@ -68,3 +68,9 @@ gem 'jquery-rails'
 gem 'jquery-turbolinks'
 
 gem 'foundation-icons-sass-rails'
+
+gem 'webpacker'
+
+gem 'react-rails'
+
+gem 'restful_routing'

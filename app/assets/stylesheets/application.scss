@@ -12,3 +12,29 @@ input:-webkit-autofill {
 input:-webkit-autofill:focus {
     -webkit-box-shadow: 0 0 0 30px ghostwhite inset;
 }
+
+.clockbar-wrapper {
+	border: 1px solid black;
+	border-radius: 2px;
+	padding: 2%;
+
+}
+
+.hours-wrapper {
+
+}
+
+.current-time {
+	border: 1px solid black;
+	background: ghostwhite;
+	color: darkorchid;
+	border-radius: 2px;
+
+}
+
+.hour-bar {
+	background: aliceblue;
+	border: 1px solid black;
+	border-radius: 2px;
+
+}
