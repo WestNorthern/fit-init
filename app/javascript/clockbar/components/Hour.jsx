@@ -6,8 +6,10 @@ class Hour extends React.Component {
   }
   render() {
     return(
-    	<div className="hour-bar small-4 columns">
-      	{this.props.hour}
+    	<div className="small-4 columns grid-x">
+    		<div className="small-1 columns"></div>
+    		<div className="small-10 columns hour-bar">{this.props.hour}</div>
+    		<div className="small-1 columns"></div>
       </div>
     );
   }
