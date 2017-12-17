@@ -1,4 +1,4 @@
-<h1>Tell Us More About Yourself . . . </h1>
+<h2 class="text-center">Let's Get You Set Up</h2>
 
 
 
@@ -6,50 +6,85 @@
   <div class="grid-x">
     <div class="cell small-2"></div>
     <div class="cell small-8 text-center">
-      <%= form_with model: @user, id: "update-info" do |f| %>
- 
-
-          <div class="field">
-            <%= f.label :location %><br />
-            <%= f.text_field :location, autofocus: true %>
+      <%= form_with model: @user, id: "update-info", class: "custom" do |f| %>
+        
+        <%# f.label :state %><br />
+        <%# select_tag(:state, options_for_select(CS.states(:us)), :include_blank => true)%>
+        
+        <div class="field">
+          <%= f.label :city %><br />
+          <small>You're from Utah for Now.</small>
+          <div id="get-city">
+          <%= f.select :location, CS.cities(:ut, :us), include_blank: true %>
           </div>
-
-          <div class="field">
-            <%= f.label :height %><br />
-            <%= f.text_field :height, :class => 'validate' %>
-          </div>
-
-          <div class="field">
-            <%= f.label :weight %><br />
-            <%= f.text_field :weight, :class => 'validate' %>
-          </div>
-
-          <div class="field">
-            <%= f.label :birthday %><br />
           
-            <%= f.text_area :birthday, :class => 'validate' %>
-          </div>
+        </div>
+        
 
-          <div class="field">
-            <%= f.label :gender %><br />
-          
-            <%= f.text_area :gender, :class => 'validate' %>
-          </div>
+        <div class="field">
+          <%= f.label :height %><br />
+          <%= f.select(:height, @heights, include_blank: true) %>
+        </div>
 
-          <div class="field">
-            <%= f.label :difficulty %><br />
-          
-            <%= f.text_area :difficulty, :class => 'validate' %>
-          </div>
-          <br>
+        <div class="field">
+          <%= f.label :weight %><br />
+          <%= f.text_field :weight, :class => 'validate' %>
+        </div>
 
-        <div class="actions">
-          <%= f.submit "That's It!", :class => 'hollow button secondary' %>
+        <div class="field">
+          <%= f.label :birthday %><br />
+        
+          <%= f.text_field :birthday, :class => 'validate span2', id: 'birthday', placeholder: 'MM/YY/DDDD' %>
+        </div>
+
+        <div class="field">
+          <%= f.label :gender %><br />
+          <%= f.select(:gender, @gender, include_blank: true) %>
+        </div>
+        <div class="text-center">
+          <h4>Choose Your Difficulty Level</h4>
+          <small>You can change it at any time.</small>
         </div>
         <br>
-      <% end %>
+        <div class="grid-x">
+          <div class="small-4 columns text-center">Casual</div>
+          <div class="small-4 columns text-center">Hardcore</div>
+          <div class="small-4 columns text-center">Extreme!</div>
+        </div>
+        <div class="grid-x text-center">
+        
+          <div class="switch small-4 columns success">
+            <input class="switch-input" id="diff-easy" type="radio" value="easy" checked name="user[difficulty]">
+            <label class="switch-paddle" for="diff-easy">
+              <span class="show-for-sr">Easy</span>
+            </label>
+          </div>
+
+          <div class="switch small-4 columns warning">
+            <input class="switch-input small-4 columns" value="medium" id="diff-medium" type="radio" name="user[difficulty]">
+            <label class="switch-paddle" for="diff-medium">
+              <span class="show-for-sr">Medium</span>
+            </label>
+          </div>
+
+          <div class="switch small-4 columns alert">
+            <input class="switch-input" id="diff-hard" value="hard" type="radio" name="user[difficulty]">
+            <label class="switch-paddle" for="diff-hard">
+              <span class="show-for-sr">Hard</span>
+            </label>
+          </div>
+
+        </div>
+        <br>
+
+      <div class="actions">
+        <%= f.submit "That's It!", :class => 'hollow button secondary' %>
+      </div>
+      <br>
+    <% end %>
 
    
     </div>
   </div>
 </div>
+
