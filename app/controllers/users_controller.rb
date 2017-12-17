@@ -9,8 +9,11 @@ class UsersController < ApplicationController
   	@user = current_user.id
   end
 
-  def info
+  def edit
   	@user = current_user
   end
 
+  def update
+  	@user = current_user
+  end
 end

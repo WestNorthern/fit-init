@@ -1,6 +1,6 @@
 yarn check v1.3.2
 success Folder in sync.
-Done in 0.21s.
+Done in 0.25s.
                   Prefix Verb   URI Pattern                    Controller#Action
         new_user_session GET    /users/sign_in(.:format)       users/sessions#new
             user_session POST   /users/sign_in(.:format)       users/sessions#create
@@ -19,7 +19,9 @@ cancel_user_registration GET    /users/cancel(.:format)        users/registratio
                          POST   /users(.:format)               users/registrations#create
           check_username POST   /check_username(.:format)      users/registrations#check_username
              check_email POST   /check_email(.:format)         users/registrations#check_email
-              users_info GET    /users/info(.:format)          users#info
                    users GET    /users(.:format)               users#index
+               edit_user GET    /users/:id/edit(.:format)      users#edit
                     user GET    /users/:id(.:format)           users#show
+                         PATCH  /users/:id(.:format)           users#update
+                         PUT    /users/:id(.:format)           users#update
                     root GET    /                              home#index
