@@ -60,7 +60,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Devise controls User account information
 gem 'devise'
 
-
 gem 'foundation-rails'
 
 gem 'jquery-rails'
@@ -74,3 +73,5 @@ gem 'webpacker'
 gem 'react-rails'
 
 gem 'restful_routing'
+
+gem 'city-state'

@@ -11,6 +11,8 @@ class UsersController < ApplicationController
 
   def edit
   	@user = current_user
+    h = (50..100).map { |inch|  { inch => (inch/12).floor.to_s+'\''+(inch%12).to_s} }
+    @heights = h.reduce Hash.new, :merge
   end
 
   def update
