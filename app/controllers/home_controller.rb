@@ -3,7 +3,7 @@ class HomeController < ApplicationController
 
 	def index
 		if current_user.complete == false
-			redirect_to info_user_path
+			redirect_to users_info_path
 		end
 		if current_user
 		else
