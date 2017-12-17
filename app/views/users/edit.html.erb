@@ -10,12 +10,12 @@
         
         <%# f.label :state %><br />
         <%# select_tag(:state, options_for_select(CS.states(:us)), :include_blank => true)%>
-        <%= @heights[0].class %>
         
         <div class="field">
           <%= f.label :city %><br />
+          <small>You're from Utah for Now.</small>
           <div id="get-city">
-          <%= f.select :location, CS.cities(:ut, :us) %>
+          <%= f.select :location, CS.cities(:ut, :us), include_blank: true %>
           </div>
           
         </div>
