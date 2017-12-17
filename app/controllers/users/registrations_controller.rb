@@ -26,6 +26,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
   def edit
+    h = (50..100).map { |inch|  {(inch/12).floor.to_s+'\''+(inch%12).to_s => inch } }
+    @heights = h.reduce Hash.new, :merge
+    @gender = ['Male', 'Female', 'NA']
     super
   end
 
@@ -52,12 +55,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:difficulty, :username, :coins, :experience, :avatar])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:difficulty, :username, :coins, :experience, :avatar, :location, :height, :weight, :birthday, :gender])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:difficulty, :username, :coins, :experience, :avatar])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:difficulty, :username, :coins, :experience, :avatar, :location, :height, :weight, :birthday, :gender])
   end
 
   # The path used after sign up.
