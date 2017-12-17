@@ -6,7 +6,7 @@
   <div class="grid-x">
     <div class="cell small-2"></div>
     <div class="cell small-8 text-center">
-      <%= form_with model: @user, id: "update-info" do |f| %>
+      <%= form_with model: @user, id: "update-info", class: "custom" do |f| %>
         
         <%# f.label :state %><br />
         <%# select_tag(:state, options_for_select(CS.states(:us)), :include_blank => true)%>
@@ -54,23 +54,23 @@
         <div class="grid-x text-center">
         
           <div class="switch small-4 columns success">
-            <input class="switch-input" id="exampleRadioSwitch1" type="radio" checked name="testGroup">
-            <label class="switch-paddle" for="exampleRadioSwitch1">
-              <span class="show-for-sr">Bulbasaur</span>
+            <input class="switch-input" id="diff-easy" type="radio" value="easy" checked name="user[difficulty]">
+            <label class="switch-paddle" for="diff-easy">
+              <span class="show-for-sr">Easy</span>
             </label>
           </div>
 
           <div class="switch small-4 columns warning">
-            <input class="switch-input small-4 columns" id="exampleRadioSwitch2" type="radio" name="testGroup">
-            <label class="switch-paddle" for="exampleRadioSwitch2">
-              <span class="show-for-sr">Bulbasaur</span>
+            <input class="switch-input small-4 columns" value="medium" id="diff-medium" type="radio" name="user[difficulty]">
+            <label class="switch-paddle" for="diff-medium">
+              <span class="show-for-sr">Medium</span>
             </label>
           </div>
 
           <div class="switch small-4 columns alert">
-            <input class="switch-input" id="exampleRadioSwitch3" type="radio" name="testGroup">
-            <label class="switch-paddle" for="exampleRadioSwitch3">
-              <span class="show-for-sr">Bulbasaur</span>
+            <input class="switch-input" id="diff-hard" value="hard" type="radio" name="user[difficulty]">
+            <label class="switch-paddle" for="diff-hard">
+              <span class="show-for-sr">Hard</span>
             </label>
           </div>
 
