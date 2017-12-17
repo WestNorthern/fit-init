@@ -1,0 +1,55 @@
+<h1>Tell Us More About Yourself . . . </h1>
+
+
+
+<div class="grid-container fluid">
+  <div class="grid-x">
+    <div class="cell small-2"></div>
+    <div class="cell small-8 text-center">
+      <%= form_with model: @user, id: "update-info" do |f| %>
+ 
+
+          <div class="field">
+            <%= f.label :location %><br />
+            <%= f.text_field :location, autofocus: true %>
+          </div>
+
+          <div class="field">
+            <%= f.label :height %><br />
+            <%= f.text_field :height, :class => 'validate' %>
+          </div>
+
+          <div class="field">
+            <%= f.label :weight %><br />
+            <%= f.text_field :weight, :class => 'validate' %>
+          </div>
+
+          <div class="field">
+            <%= f.label :birthday %><br />
+          
+            <%= f.text_area :birthday, :class => 'validate' %>
+          </div>
+
+          <div class="field">
+            <%= f.label :gender %><br />
+          
+            <%= f.text_area :gender, :class => 'validate' %>
+          </div>
+
+          <div class="field">
+            <%= f.label :difficulty %><br />
+          
+            <%= f.text_area :difficulty, :class => 'validate' %>
+          </div>
+          <br>
+
+        <div class="actions">
+          <%= f.submit "That's It!", :class => 'hollow button secondary' %>
+        </div>
+        <br>
+      <% end %>
+
+   
+    </div>
+  </div>
+</div>

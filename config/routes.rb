@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     post "/check_email", to: "users/registrations#check_email"
   end
 
-	resources :users, only: [:index, :show]
+	resources :users, only: [:index, :show, :edit, :update]
 
 	root "home#index"
 
