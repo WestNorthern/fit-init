@@ -34,19 +34,46 @@
         <div class="field">
           <%= f.label :birthday %><br />
         
-          <%= f.text_field :birthday, :class => 'validate span2', id: 'birthday' %>
+          <%= f.text_field :birthday, :class => 'validate span2', id: 'birthday', placeholder: 'MM/YY/DDDD' %>
         </div>
 
         <div class="field">
           <%= f.label :gender %><br />
-        
-          <%= f.text_area :gender, :class => 'validate' %>
+          <%= f.select(:gender, @gender, include_blank: true) %>
         </div>
-
-        <div class="field">
-          <%= f.label :difficulty %><br />
+        <div class="text-center">
+          <h4>Choose Your Difficulty Level</h4>
+          <small>You can change it at any time.</small>
+        </div>
+        <br>
+        <div class="grid-x">
+          <div class="small-4 columns text-center">Casual</div>
+          <div class="small-4 columns text-center">Hardcore</div>
+          <div class="small-4 columns text-center">Extreme!</div>
+        </div>
+        <div class="grid-x text-center">
         
-          <%= f.text_area :difficulty, :class => 'validate' %>
+          <div class="switch small-4 columns success">
+            <input class="switch-input" id="exampleRadioSwitch1" type="radio" checked name="testGroup">
+            <label class="switch-paddle" for="exampleRadioSwitch1">
+              <span class="show-for-sr">Bulbasaur</span>
+            </label>
+          </div>
+
+          <div class="switch small-4 columns warning">
+            <input class="switch-input small-4 columns" id="exampleRadioSwitch2" type="radio" name="testGroup">
+            <label class="switch-paddle" for="exampleRadioSwitch2">
+              <span class="show-for-sr">Bulbasaur</span>
+            </label>
+          </div>
+
+          <div class="switch small-4 columns alert">
+            <input class="switch-input" id="exampleRadioSwitch3" type="radio" name="testGroup">
+            <label class="switch-paddle" for="exampleRadioSwitch3">
+              <span class="show-for-sr">Bulbasaur</span>
+            </label>
+          </div>
+
         </div>
         <br>
 
