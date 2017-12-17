@@ -1,12 +1,18 @@
 class UsersController < ApplicationController
 
+  def age(dob)
+    now = Time.now.utc.to_date
+    now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
+  end
+
   def index
   	@users = User.all.reverse
 
   end
 
   def show
-  	@user = current_user.id
+  	@user = User.find(params[:id])
+    @user_age = age(@user.birthday)
   end
 
   def edit
