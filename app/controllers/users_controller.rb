@@ -18,5 +18,22 @@ class UsersController < ApplicationController
 
   def update
   	@user = current_user
+
+    respond_to do |format|
+      if @user.update(user_params)
+        @user.update(complete: true)
+        format.html { redirect_to @user }
+      else
+        format.html { render :action => "edit" }
+      end
+    end
+  end
+
+
+  private
+
+
+  def user_params
+    params.require(:user).permit(:location, :birthday, :height, :weight, :difficulty, :gender)
   end
 end
