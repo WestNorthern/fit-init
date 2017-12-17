@@ -16,12 +16,23 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require foundation-datepicker
 //= require_tree .
 
 
 $(document).on('turbolinks:load', function() {
   $(document).foundation();
 
+
+  $('#birthday').fdatepicker({
+		initialDate: '02-12-1989',
+		format: 'mm-dd-yyyy',
+		disableDblClickSelection: true,
+		leftArrow:'<<',
+		rightArrow:'>>',
+		closeIcon:'X',
+		closeButton: true
+	});
 });
 
 
