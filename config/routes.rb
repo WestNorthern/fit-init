@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
 
+  get 'workouts/show'
+
+  get 'workouts/new'
+
+  get 'workouts/create'
+
+  get 'workouts/edit'
+
+  get 'workouts/update'
+
+  get 'workouts/destroy'
+
+  get 'workouts/index'
+
   get 'hourly_scores/index'
 
   get 'hourly_scores/new'
