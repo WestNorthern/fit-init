@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
     @user_age = age(@user.birthday)
+    @last_score = @user.hourly_scores.last
   end
 
   def edit
