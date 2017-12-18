@@ -1,2 +1,26 @@
-<h1>Workouts#index</h1>
-<p>Find me in app/views/workouts/index.html.erb</p>
+<h1>A list of all the workouts!</h1>
+
+<div class="workouts">
+	<hr>
+	<hr>
+	<% @workouts.each do |workout| %>
+		<div class="workout">
+			<%= workout.title %>
+			<br>
+			<%= workout.description %>
+			<br>
+			<%= workout.video_url %>
+			<br>
+			<%= workout.min_lvl %>
+			<br>
+			<%= workout.min_reps %>
+			<br>
+		</div>
+			<br>
+			<hr>
+	<% end %>
+	<hr>
+	<hr>
+
+
+</div>

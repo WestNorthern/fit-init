@@ -1,32 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'workouts/show'
+  resources :workouts
 
-  get 'workouts/new'
-
-  get 'workouts/create'
-
-  get 'workouts/edit'
-
-  get 'workouts/update'
-
-  get 'workouts/destroy'
-
-  get 'workouts/index'
-
-  get 'hourly_scores/index'
-
-  get 'hourly_scores/new'
-
-  get 'hourly_scores/create'
-
-  get 'hourly_scores/edit'
-
-  get 'hourly_scores/update'
-
-  get 'hourly_scores/destroy'
-
-  get 'hourly_scores/show'
+  resources :hourly_scores
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',
