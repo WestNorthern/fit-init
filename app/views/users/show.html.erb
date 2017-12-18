@@ -1,3 +1,17 @@
-<h1>This is <%= current_user.username %>'s Profile</h1>
+<% if @user.id == current_user.id %>
+	<h1>This is Your Profile</h1>
+<% else %>
+	<h1>This is <%= @user.username %>'s Profile</h1>
+<% end %>
 
-<%= link_to "Edit Profile", edit_user_registration_path %>
+<h4>Gender: <%= @user.gender %></h4>
+<h4>Exp: <%= @user.experience %></h4>
+<h4>Coins: <%= @user.coins %></h4>
+<h4>Height: <%=  (@user.height/12).floor.to_s+'\''+((@user.height%12).to_i).to_s+'\'\'' %></h4>
+<h4>Weight: <%= @user.weight.to_i %> lbs.</h4>
+<h4>Birthday: <%= @user.birthday %></h4>
+<h4>Location (in Utah): <%= @user.location %></h4>
+<h4>Age: <%= @user_age %></h4>
+
+
+<%= link_to "Edit Profile", edit_user_registration_path, class: 'button hollow warning' %>

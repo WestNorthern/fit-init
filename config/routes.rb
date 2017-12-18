@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
 
+  get 'hourly_scores/index'
+
+  get 'hourly_scores/new'
+
+  get 'hourly_scores/create'
+
+  get 'hourly_scores/edit'
+
+  get 'hourly_scores/update'
+
+  get 'hourly_scores/destroy'
+
+  get 'hourly_scores/show'
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'

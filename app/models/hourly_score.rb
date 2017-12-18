@@ -1,0 +1,2 @@
+class HourlyScore < ApplicationRecord
+end
