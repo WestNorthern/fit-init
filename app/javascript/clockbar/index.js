@@ -4,5 +4,12 @@ import App from './components/App'
 import Hour from './components/Hour'
 
 
-const clockbar = document.querySelector('#clockbar')  
-ReactDOM.render(<App />, clockbar) 
+
+document.addEventListener('DOMContentLoaded', () => {
+  const node = document.getElementById('clockbar')
+  const data = JSON.parse(node.getAttribute('data'))
+
+  ReactDOM.render(<App {...data} />, node)
+
+})
+

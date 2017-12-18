@@ -92,6 +92,7 @@ class App extends React.Component {
   }
 
   render() {
+    
     return(
     	<div className="clockbar-wrapper">
     		<div className="grid-x">
@@ -102,8 +103,9 @@ class App extends React.Component {
 	      	<div className="hours-wrapper small-5 columns grid-x"> {this.state.nextThreeHours.map( hour => <Hour hour={hour} key={hour} /> ) } </div>
       	</div>
       	<br/>
+
       	<div className="text-center">
-      		<WorkoutButton />
+      		<WorkoutButton wav={this.props.wav}   />
       	</div>
       </div>
     );
