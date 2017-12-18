@@ -1,2 +1,3 @@
 class HourlyScore < ApplicationRecord
+	belongs_to :user
 end
