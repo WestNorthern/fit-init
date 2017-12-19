@@ -1,0 +1,9 @@
+<%= form_with model: @hourly_score, id: "hourly_score", class: "custom" do |f| %>
+
+  <%= f.hidden_field :workout, :value => @r_workout.title %>
+
+  
+  <input type="submit" name="commit" value="Fit Commit!" class="hollow button secondary" id="fit-commit" data-open="exampleModal3" data-disable-with="Fit Commit!">
+
+<% end %>
+

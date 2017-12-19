@@ -1,0 +1,1 @@
+$('#shotdown').foundation('open');
