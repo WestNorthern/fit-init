@@ -1,6 +1,6 @@
 <h1 class="text-center"><%= current_user.username %>'s Dashboard</h1>
 <div class="row">
-	<div class="grid-x clock-container">
+	<div class="grid-x">
 		<div class="small-1 columns"></div>
 		<%= content_tag :div,
 		  id: "clockbar",
@@ -15,7 +15,7 @@
 	</div>
 </div>
 
-<h3><%= current_user.experience %></h3>
+<h3>Experience: <%= current_user.experience %></h3>
 <h2>Wav: <%= current_user.wav %></h2>
 
 
@@ -49,10 +49,9 @@
 
 <script>
 	$('#exp-notice').on('click', function(){
-		$('#clockbar').attr('wav', false);
-		$("#clockbar").load(location.href + " #clockbar");
+		
+		setTimeout("location.reload();", 100);
 	});
-
 
 	
 </script>

@@ -33,6 +33,7 @@ $(document).on('turbolinks:load', function() {
 		closeIcon:'X',
 		closeButton: true
 	});
+	
 });
 
 
