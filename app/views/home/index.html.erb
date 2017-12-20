@@ -8,13 +8,18 @@
 		  data: {
 		    wav: current_user.wav,
 		    name: 'ryan',
-		    hourArray: current_user.hourbar_array, 
+		    hourArray: current_user.hourbar_array,
+		    dayScoreArray: current_user.day_score(DateTime.now.to_date),
 		}.to_json do %>
 
 		<% end %>
 		<%= javascript_pack_tag 'clockbar' %>
 	</div>
 </div>
+<br>
+<br>
+<hr>
+
 
 <h3>Experience: <%= current_user.experience %></h3>
 <h3>Current Hour Complete? <%= current_user.current_complete %></h3>

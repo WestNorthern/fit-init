@@ -115,15 +115,15 @@ class User < ApplicationRecord
   	puts "whatever this is..."
   	p self.hourly_scores.where(created_at: date.midnight..date.end_of_day)
   	scores = self.hourly_scores.where(created_at: date.midnight..date.end_of_day).to_a
-  	score_hours = scores.map { |x| x.created_at.utc.hour }
-  	(0..24).each do |x|
+  	score_hours = scores.map { |x| (x.created_at.utc.hour - 7) % 23 }
+  	(0..23).each do |x|
   		if score_hours.include? x
   			score_arr.push(true)
   		else
   			score_arr.push(false)
   		end
   	end
-  	return score_arr
+  	return score_arr.each_slice(2).to_a
   end
 
 
