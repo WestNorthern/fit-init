@@ -5,13 +5,33 @@ class Hour extends React.Component {
     super(props);
   }
   render() {
-    return(
-    	<div className="small-4 columns grid-x">
-    		<div className="small-1 columns"></div>
-    		<div className="small-10 columns hour-bar">{this.props.hour}</div>
-    		<div className="small-1 columns"></div>
-      </div>
-    );
+    if(this.props.hourCheck === true){
+      return(
+      	<div className="small-4 columns grid-x">
+      		<div className="small-1 columns"></div>
+      		<div className="small-10 columns hour-bar-yes">{this.props.hour}</div>
+      		<div className="small-1 columns"></div>
+        </div>
+      );
+    } 
+    else if (this.props.hourCheck === false){
+      return(
+        <div className="small-4 columns grid-x">
+          <div className="small-1 columns"></div>
+          <div className="small-10 columns hour-bar-no">{this.props.hour}</div>
+          <div className="small-1 columns"></div>
+        </div>
+      );
+    }
+    else {
+      return(
+        <div className="small-4 columns grid-x">
+          <div className="small-1 columns"></div>
+          <div className="small-10 columns hour-bar">{this.props.hour}</div>
+          <div className="small-1 columns"></div>
+        </div>
+      );
+    }
   }
 }
 

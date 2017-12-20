@@ -7,7 +7,8 @@
 		  class: "small-10 columns text-center",
 		  data: {
 		    wav: current_user.wav,
-		    name: 'ryan'
+		    name: 'ryan',
+		    hourArray: current_user.hourbar_array, 
 		}.to_json do %>
 
 		<% end %>
@@ -16,7 +17,12 @@
 </div>
 
 <h3>Experience: <%= current_user.experience %></h3>
+<h3>Current Hour Complete? <%= current_user.current_complete %></h3>
 <h2>Wav: <%= current_user.wav %></h2>
+<h3>Last Three Scores</h3>
+<% current_user.hourbar_array.each do |score| %>
+<p><%= score %></p><br>
+<% end %>
 
 
 <div class="reveal" id="workout-modal" data-reveal>

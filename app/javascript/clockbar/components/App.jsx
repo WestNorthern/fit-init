@@ -96,7 +96,7 @@ class App extends React.Component {
     return(
     	<div className="clockbar-wrapper">
     		<div className="grid-x">
-	    		<div className="hours-wrapper small-5 columns grid-x"> {this.state.pastThreeHours.map( hour => <Hour hour={hour} key={hour} /> ) } </div>
+	    		<div className="hours-wrapper small-5 columns grid-x"> { this.state.pastThreeHours.map( (hour, index) => <Hour hour={hour} key={hour} hourCheck={this.props.hourArray[index]} /> ) } </div>
 
 	      	<div className="current-time small-2 columns">{this.state.time}</div>
 
