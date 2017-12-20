@@ -18,12 +18,12 @@
 
 <h3>Experience: <%= current_user.experience %></h3>
 <h3>Current Hour Complete? <%= current_user.current_complete %></h3>
-<h2>Wav: <%= current_user.wav %></h2>
+<h3>Wav: <%= current_user.wav %></h3>
 <h3>Last Three Scores</h3>
 <% current_user.hourbar_array.each do |score| %>
 <p><%= score %></p><br>
 <% end %>
-
+<h3>Score array by date: <%= current_user.day_score(DateTime.now.to_date) %></h3>
 
 <div class="reveal" id="workout-modal" data-reveal>
   <h1>The <%= @r_workout.title.capitalize %></h1>
