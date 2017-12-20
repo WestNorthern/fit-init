@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   def wav # returns true if workout is available
 
-    current_hour = Time.now.hour + 7
+    current_hour = (Time.now.hour + 7) % 12
   
     if self.hourly_scores.last
       puts "This is the current hour"

@@ -49,8 +49,8 @@
 
 <script>
 	$('#exp-notice').on('click', function(){
-		$(".clock-container").load(location.href + " .clock-container");
 		$('#clockbar').attr('wav', false);
+		$("#clockbar").load(location.href + " #clockbar");
 	});
 
 
