@@ -5,11 +5,10 @@ import Hour from './components/Hour'
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('turbolinks:load', () => {
   const node = document.getElementById('clockbar')
   const data = JSON.parse(node.getAttribute('data'))
 
   ReactDOM.render(<App {...data} />, node)
 
 })
-

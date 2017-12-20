@@ -5,7 +5,7 @@ class WorkoutButton extends React.Component {
     super(props);
   }
   render() {
-    if(this.props.wav == "true"){
+    if(this.props.wav == true){
       return(
       	<div className="workout-button">
       		<button className="hollow button success" href="#" data-open="workout-modal">Work out!</button>
@@ -14,7 +14,7 @@ class WorkoutButton extends React.Component {
     } else {
       return(
         <div className="workout-button">
-          <button className="hollow button success disabled" href="#">You rock!</button>
+          <button className="hollow button alert disabled" href="#">You rock!</button>
         </div>
       );
     }

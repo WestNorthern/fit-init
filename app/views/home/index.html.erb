@@ -1,12 +1,12 @@
 <h1 class="text-center"><%= current_user.username %>'s Dashboard</h1>
 <div class="row">
-	<div class="grid-x">
+	<div class="grid-x clock-container">
 		<div class="small-1 columns"></div>
 		<%= content_tag :div,
 		  id: "clockbar",
 		  class: "small-10 columns text-center",
 		  data: {
-		    wav: 'true',
+		    wav: current_user.wav,
 		    name: 'ryan'
 		}.to_json do %>
 
@@ -16,6 +16,7 @@
 </div>
 
 <h3><%= current_user.experience %></h3>
+<h2>Wav: <%= current_user.wav %></h2>
 
 
 <div class="reveal" id="workout-modal" data-reveal>
@@ -30,6 +31,7 @@
 
 <div class="reveal" id="exampleModal3" data-reveal>
   <h2>You've gained 50 exp!</h2>
+
   <button class="close-button" id="exp-notice" data-close aria-label="Close reveal" type="button">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -47,7 +49,10 @@
 
 <script>
 	$('#exp-notice').on('click', function(){
-		setTimeout("location.reload();", 100);
+		$(".clock-container").load(location.href + " .clock-container");
+		$('#clockbar').attr('wav', false);
 	});
+
+
 	
 </script>

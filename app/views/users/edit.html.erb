@@ -32,12 +32,6 @@
         </div>
 
         <div class="field">
-          <%= f.label :birthday %><br />
-        
-          <%= f.text_field :birthday, :class => 'validate span2', id: 'birthday', placeholder: 'MM/DD/YYYY', :required => true %>
-        </div>
-
-        <div class="field">
           <%= f.label :gender %><br />
           <%= f.select(:gender, @gender, include_blank: true) %>
         </div>
