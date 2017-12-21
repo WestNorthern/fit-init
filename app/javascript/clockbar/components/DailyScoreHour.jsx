@@ -7,12 +7,12 @@ class DailyScoreHour extends React.Component {
   render() {
       if(this.props.isTrue === true) {
         return(
-          <div className="small-5 columns bobby"></div>
+          <div className="small-6 columns hour-score-true"></div>
         );
       }
       else {
         return(
-          <div className="small-5 columns bobby-no"></div>
+          <div className="small-6 columns hour-score-false"></div>
         );
       }
   }

@@ -33,7 +33,7 @@ input:-webkit-autofill:focus {
 }
 
 .hour-bar {
-	background: aliceblue;
+	background: ghostwhite;
 	border: 1px solid black;
 	border-radius: 2px;
 
@@ -55,16 +55,16 @@ input:-webkit-autofill:focus {
 
 }
 
-.bobby {
+.hour-score-true {
 	background: orange;
-	border: 1px solid black;
-	height: 40px;
-	border-radius: 50%;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	height: 30px;
 }
 
-.bobby-no {
-	background: gray;
-	border: 1px solid black;
-	height: 40px;
-	border-radius: 50%;
+.hour-score-false {
+	background: lightgray;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	height: 30px;
 }

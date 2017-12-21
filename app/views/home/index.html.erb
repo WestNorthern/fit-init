@@ -9,7 +9,7 @@
 		    wav: current_user.wav,
 		    name: 'ryan',
 		    hourArray: current_user.hourbar_array,
-		    dayScoreArray: current_user.day_score(DateTime.now.to_date),
+		    dayScoreArray: current_user.day_score_workout(Time.now.to_date),
 		}.to_json do %>
 
 		<% end %>
@@ -20,6 +20,8 @@
 <br>
 <hr>
 
+<h3>ActiveRecordTime <%= Time.now %></h3>
+<h3>Last Created Record: <%= current_user.hourly_scores.last.created_at.in_time_zone("Mountain Time (US & Canada)") %></h3>
 <h3>Hydrated this hour: <%= current_user.is_hydrated %></h3>
 <h3>Experience: <%= current_user.experience %></h3>
 <h3>Current Hour Complete? <%= current_user.current_complete %></h3>
@@ -28,7 +30,7 @@
 <% current_user.hourbar_array.each do |score| %>
 <p><%= score %></p><br>
 <% end %>
-<h3>Score array by date: <%= current_user.day_score(DateTime.now.to_date) %></h3>
+<h3>Score array by date: <%= current_user.day_score_workout(Time.now.to_date) %></h3>
 
 <div class="reveal" id="workout-modal" data-reveal>
   <h1>The <%= @r_workout.title.capitalize %></h1>
