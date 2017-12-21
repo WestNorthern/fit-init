@@ -5,14 +5,15 @@ class ApplicationController < ActionController::Base
     current_hour = Time.now.in_time_zone("Mountain Time (US & Canada)").hour
   
     if user.hourly_scores.last
-      puts "This is the current hour"
-      p current_hour
-      puts "This is the users last hour"
-      p current_user.hourly_scores.last.created_at.hour
-      if user.hourly_scores.last.created_at.hour.to_i != current_hour
+      if user.hourly_scores.last.created_at.hour.to_i != current_hour 
         return true
       end
-      if current_user.hourly_scores.last.created_at.hour.to_i == current_hour
+      if current_user.hourly_scores.last.created_at.hour.to_i == current_hour && user.hourly_scores.last.workout == nil
+        return true
+      end
+      if current_user.hourly_scores.last.created_at.hour.to_i == current_hour && user.hourly_scores.last.workout != ''
+      	puts "Why is wav false?"
+      	p user.hourly_scores.last.workout
         return false
       end
     else

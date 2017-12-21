@@ -27,7 +27,15 @@ class HomeController < ApplicationController
 
 	def index
 		@user = current_user
-		@hourly_score = HourlyScore.new
+
+		# If the current record has hydration, and no workout, change model to update
+		if @user.hourly_scores.last.created_at.in_time_zone("Mountain Time (US & Canada)").hour == Time.now.in_time_zone("Mountain Time (US & Canada)").hour && @user.hourly_scores.last.created_at.in_time_zone("Mountain Time (US & Canada)").day == Time.now.in_time_zone("Mountain Time (US & Canada)").day && @user.hourly_scores.last.workout == nil && @user.hourly_scores.last.hydrated == true
+			@hourly_score = @user.hourly_scores.last
+		else
+			@hourly_score = HourlyScore.new
+		end
+
+		# If the current record has a workout and no hydration, change model to update
 		if @user.hourly_scores.last.created_at.in_time_zone("Mountain Time (US & Canada)").hour == Time.now.in_time_zone("Mountain Time (US & Canada)").hour && @user.hourly_scores.last.created_at.in_time_zone("Mountain Time (US & Canada)").day == Time.now.in_time_zone("Mountain Time (US & Canada)").day
 			@update_score = @user.hourly_scores.last
 		else

@@ -72,7 +72,11 @@ class User < ApplicationRecord
         return true
       end
 
-      if self.hourly_scores.last.created_at.in_time_zone("Mountain Time (US & Canada)").hour == now
+      if self.hourly_scores.last.created_at.in_time_zone("Mountain Time (US & Canada)").hour == now && self.hourly_scores.last.workout == nil
+        return true
+      end
+
+      if self.hourly_scores.last.created_at.in_time_zone("Mountain Time (US & Canada)").hour == now && self.hourly_scores.last.workout != nil
         return false
       end
 
