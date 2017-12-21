@@ -31,6 +31,7 @@
 <p><%= score %></p><br>
 <% end %>
 <h3>Score array by date: <%= current_user.day_score_workout(Time.now.to_date) %></h3>
+<h3>Score array by date: <%= current_user.day_score_hydration(Time.now.to_date) %></h3>
 
 <div class="reveal" id="workout-modal" data-reveal>
   <h1>The <%= @r_workout.title.capitalize %></h1>

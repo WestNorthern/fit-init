@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
     def wav(user)
-    current_hour = (Time.now.hour + 7) % 12
+    current_hour = Time.now.in_time_zone("Mountain Time (US & Canada)").hour
   
     if user.hourly_scores.last
       puts "This is the current hour"

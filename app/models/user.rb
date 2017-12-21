@@ -149,7 +149,23 @@ class User < ApplicationRecord
   end
 
   def day_score_hydration(date) # returns an array with hourly hydration score for a date
-
+  	score_arr = []
+  	hydrated_scores = []
+  	scores = self.hourly_scores.where(created_at: date.in_time_zone("Mountain Time (US & Canada)").beginning_of_day..date.in_time_zone("Mountain Time (US & Canada)").end_of_day).to_a
+  	hydrated_scores = scores.select { |x| x.hydrated == true }
+  	puts "Hydrated scores"
+  	p hydrated_scores
+  	score_hours = hydrated_scores.map { |x| x.created_at.in_time_zone("Mountain Time (US & Canada)").hour }
+  	puts "Hydrated hours"
+  	p score_hours
+  	(0..23).each do |x|
+  		if score_hours.include? x
+  			score_arr.push(true)
+  		else
+  			score_arr.push(false)
+  		end
+  	end
+  	return score_arr.each_slice(2).to_a
 
   end
 
