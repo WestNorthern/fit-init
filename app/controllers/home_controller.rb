@@ -29,8 +29,6 @@ class HomeController < ApplicationController
 		@user = current_user
 		@hourly_score = HourlyScore.new
 		if @user.hourly_scores.last.created_at.in_time_zone("Mountain Time (US & Canada)").hour == Time.now.in_time_zone("Mountain Time (US & Canada)").hour && @user.hourly_scores.last.created_at.in_time_zone("Mountain Time (US & Canada)").day == Time.now.in_time_zone("Mountain Time (US & Canada)").day
-			puts "IM IN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-			p @user.hourly_scores.last
 			@update_score = @user.hourly_scores.last
 		else
 			@update_score = HourlyScore.new

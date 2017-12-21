@@ -68,3 +68,17 @@ input:-webkit-autofill:focus {
 	border-bottom: 1px solid black;
 	height: 30px;
 }
+
+.hydrate-score-true {
+	background: blue;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	height: 30px;
+}
+
+.hydrate-score-false {
+	background: lightgray;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	height: 30px;
+}

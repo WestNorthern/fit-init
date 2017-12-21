@@ -10,6 +10,7 @@
 		    name: 'ryan',
 		    hourArray: current_user.hourbar_array,
 		    dayScoreArray: current_user.day_score_workout(Time.now.to_date),
+		    hydrateScoreArray: current_user.day_score_hydration(Time.now.to_date),
 		    hydrated: current_user.is_hydrated,
 		}.to_json do %>
 

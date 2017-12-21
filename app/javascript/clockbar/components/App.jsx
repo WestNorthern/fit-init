@@ -3,6 +3,7 @@ import Hour from "./Hour"
 import WorkoutButton from "./WorkoutButton"
 import HydrateButton from "./HydrateButton"
 import DailyScoreBox from "./DailyScoreBox"
+import HydrateScoreBox from "./HydrateScoreBox"
 
 class App extends React.Component {
 	constructor(props) {
@@ -113,6 +114,7 @@ class App extends React.Component {
         	</div>
         </div>
         <DailyScoreBox dayScoreArray={this.props.dayScoreArray} />
+        <HydrateScoreBox hydrateScoreArray={this.props.hydrateScoreArray} />
       </div>
     );
   }
