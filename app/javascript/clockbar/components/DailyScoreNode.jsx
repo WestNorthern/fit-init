@@ -10,7 +10,6 @@ class DailyScoreNode extends React.Component {
         <div className="small-1 columns grid-x">
           
           <DailyScoreHour isTrue={this.props.node[0]} />
-          <div className="small-1"></div>
           <DailyScoreHour isTrue={this.props.node[1]} />
 
         </div>

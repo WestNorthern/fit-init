@@ -1,7 +1,9 @@
 import React from "react"
 import Hour from "./Hour"
 import WorkoutButton from "./WorkoutButton"
+import HydrateButton from "./HydrateButton"
 import DailyScoreBox from "./DailyScoreBox"
+import HydrateScoreBox from "./HydrateScoreBox"
 
 class App extends React.Component {
 	constructor(props) {
@@ -107,10 +109,12 @@ class App extends React.Component {
         	<br/>
 
         	<div className="text-center">
-        		<WorkoutButton wav={this.props.wav}   />
+            <WorkoutButton wav={this.props.wav}   />
+        		<HydrateButton hydrated={this.props.hydrated}   />
         	</div>
         </div>
         <DailyScoreBox dayScoreArray={this.props.dayScoreArray} />
+        <HydrateScoreBox hydrateScoreArray={this.props.hydrateScoreArray} />
       </div>
     );
   }

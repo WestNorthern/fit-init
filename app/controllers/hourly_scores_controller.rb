@@ -25,6 +25,11 @@ class HourlyScoresController < ApplicationController
   end
 
   def update
+    @user = current_user
+    @update_score = @user.hourly_scores.last
+    @update_score.update(score_params)
+    current_user.increment!('experience', 50)
+
   end
 
   def destroy
