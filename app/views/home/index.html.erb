@@ -34,7 +34,7 @@
 <% end %>
 <h3>Score array by date: <%= current_user.day_score_workout(Time.now.to_date) %></h3>
 <h3>Score array by date: <%= current_user.day_score_hydration(Time.now.to_date) %></h3>
-
+<%= line_chart User.group_by_day(:created_at).count %>
 <div class="reveal" id="workout-modal" data-reveal>
   <h1>The <%= @r_workout.title.capitalize %></h1>
   <p class="lead">Do <%= @r_workout.min_reps %> <%= @r_workout.title %>s! </p>
