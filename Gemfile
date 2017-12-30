@@ -75,5 +75,3 @@ gem 'react-rails'
 gem 'city-state'
 
 gem 'foundation-datepicker-rails'
-
-gem 'chartkick'
