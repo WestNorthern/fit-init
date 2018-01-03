@@ -7,6 +7,18 @@ class User < ApplicationRecord
 
   has_many :hourly_scores
 
+  def lvl # placeholder for user level algorithm
+    lvl = 0
+    exp = self.experience.to_f
+    if self.experience == nil
+      lvl = 1
+    else
+      lvl = (0.1 * Math.sqrt(exp)).to_i
+      # lvl = sqrt(100 * (self.experience)) / 100
+    end
+    return lvl
+  end
+
   # gets current hour in utc
   def current_hour
     Time.now.in_time_zone("Mountain Time (US & Canada)").hour
@@ -139,7 +151,8 @@ class User < ApplicationRecord
   	puts "whatever this is..."
   	p self.hourly_scores.where(created_at: date.in_time_zone("Mountain Time (US & Canada)").midnight..date.in_time_zone("Mountain Time (US & Canada)").end_of_day).count
   	scores = self.hourly_scores.where(created_at: date.in_time_zone("Mountain Time (US & Canada)").beginning_of_day..date.in_time_zone("Mountain Time (US & Canada)").end_of_day).to_a
-  	score_hours = scores.map { |x| x.created_at.in_time_zone("Mountain Time (US & Canada)").hour }
+  	workout_scores = scores.select { |x| x.workout != nil }
+    score_hours = workout_scores.map { |x| x.created_at.in_time_zone("Mountain Time (US & Canada)").hour }
   	puts "then this..."
   	p score_hours
   	(0..23).each do |x|

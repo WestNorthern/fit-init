@@ -4,52 +4,47 @@ class HomeController < ApplicationController
 		puts "Why broken?"
 	end
 
-	def user_lvl(user)
-		lvl = 0
-		if current_user
-
-			if user.experience == nil
-				lvl = 10
-			else
-				lvl = user.experience/100
-			end
-
-		end
-			return lvl
-	end
 
 	def randomworkout
-		puts "here is the current user level:"
-		p user_lvl(current_user)
+		# make this rely on User.lvl
 		len = Workout.where("min_lvl <  5").count
 		@r_workout = Workout.find(1 + rand(len))
 	end
 
 	def index
 		@user = current_user
-
-		# If the current record has hydration, and no workout, change model to update
-		if @user.hourly_scores.last.created_at.in_time_zone("Mountain Time (US & Canada)").hour == Time.now.in_time_zone("Mountain Time (US & Canada)").hour && @user.hourly_scores.last.created_at.in_time_zone("Mountain Time (US & Canada)").day == Time.now.in_time_zone("Mountain Time (US & Canada)").day && @user.hourly_scores.last.workout == nil && @user.hourly_scores.last.hydrated == true
-			@hourly_score = @user.hourly_scores.last
-		else
-			@hourly_score = HourlyScore.new
-		end
-
-		# If the current record has a workout and no hydration, change model to update
-		if @user.hourly_scores.last.created_at.in_time_zone("Mountain Time (US & Canada)").hour == Time.now.in_time_zone("Mountain Time (US & Canada)").hour && @user.hourly_scores.last.created_at.in_time_zone("Mountain Time (US & Canada)").day == Time.now.in_time_zone("Mountain Time (US & Canada)").day
-			@update_score = @user.hourly_scores.last
-		else
-			@update_score = HourlyScore.new
-		end
-  	@user = current_user
-		@r_workout = randomworkout
 		if current_user
 			if current_user.complete == false
 				redirect_to edit_user_path(current_user)
 			end
+			# If the current record has hydration, and no workout, change model to update
+			if @user.hourly_scores.last
+				if @user.hourly_scores.last.created_at.in_time_zone("Mountain Time (US & Canada)").hour == Time.now.in_time_zone("Mountain Time (US & Canada)").hour && @user.hourly_scores.last.created_at.in_time_zone("Mountain Time (US & Canada)").day == Time.now.in_time_zone("Mountain Time (US & Canada)").day && @user.hourly_scores.last.workout == nil && @user.hourly_scores.last.hydrated == true
+					@hourly_score = @user.hourly_scores.last
+				else
+					@hourly_score = HourlyScore.new
+				end
+			else
+				@hourly_score = HourlyScore.new
+			end
+
+			# If the current record has a workout and no hydration, change model to update
+			if @user.hourly_scores.last
+				if @user.hourly_scores.last.created_at.in_time_zone("Mountain Time (US & Canada)").hour == Time.now.in_time_zone("Mountain Time (US & Canada)").hour && @user.hourly_scores.last.created_at.in_time_zone("Mountain Time (US & Canada)").day == Time.now.in_time_zone("Mountain Time (US & Canada)").day
+					@update_score = @user.hourly_scores.last
+				else
+					@update_score = HourlyScore.new
+				end
+	  	else
+	  		@update_score = HourlyScore.new
+	  	end
+
+			@r_workout = randomworkout
 		else
 			redirect_to new_user_session_path
 		end
+		
+	
 	end
 
 

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
+  get 'about/show'
+
   resources :workouts
+
+  resources :about, only: [:show, :index]
 
   resources :hourly_scores
 

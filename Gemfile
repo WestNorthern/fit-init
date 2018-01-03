@@ -72,8 +72,6 @@ gem 'webpacker'
 
 gem 'react-rails'
 
-gem 'restful_routing'
-
 gem 'city-state'
 
 gem 'foundation-datepicker-rails'

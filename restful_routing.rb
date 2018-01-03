@@ -2,6 +2,7 @@ yarn check v1.3.2
 success Folder in sync.
 Done in 0.20s.
                   Prefix Verb   URI Pattern                       Controller#Action
+              about_show GET    /about/show(.:format)             about#show
                 workouts GET    /workouts(.:format)               workouts#index
                          POST   /workouts(.:format)               workouts#create
              new_workout GET    /workouts/new(.:format)           workouts#new
@@ -10,6 +11,8 @@ Done in 0.20s.
                          PATCH  /workouts/:id(.:format)           workouts#update
                          PUT    /workouts/:id(.:format)           workouts#update
                          DELETE /workouts/:id(.:format)           workouts#destroy
+             about_index GET    /about(.:format)                  about#index
+                   about GET    /about/:id(.:format)              about#show
            hourly_scores GET    /hourly_scores(.:format)          hourly_scores#index
                          POST   /hourly_scores(.:format)          hourly_scores#create
         new_hourly_score GET    /hourly_scores/new(.:format)      hourly_scores#new

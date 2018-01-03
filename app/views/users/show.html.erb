@@ -1,10 +1,55 @@
-<% if @user.id == current_user.id %>
-	<h1>This is Your Profile</h1>
-<% else %>
-	<h1>This is <%= @user.username %>'s Profile</h1>
-<% end %>
 
-<h4>Gender: <%= @user.gender %></h4>
+<div class="header-grid">
+  <div id="b1" class="block">
+		<% if @user.id == current_user.id %>
+			<h1>Hey, <%= @user.username %></h1>
+			<h3>from <%= @user.location %>!</h3>
+		<% else %>
+			<h1>This is <%= @user.username %>'s Profile</h1>
+		<% end %>
+  </div>
+  <div id="b2" class="block">
+  	<% if @user.gender == 'Male' %>
+  		<%= image_tag("male_inv", height: '200', width: '200')  %>
+  	<% elsif @user.gender == 'Female' %>
+  		<%= image_tag("female_inv", height: '200', width: '200', text_align: 'right') %>
+  	<% elsif @user.gender == 'NA' %>
+  		<%= image_tag("prince", height: '200', width: '200') %>
+  	<% else %>
+  		<%= image_tag("prince", height: '200', width: '200') %>
+  	<% end %>
+  </div>
+  <div id="b3" class="block">
+  	<h3>BMI: 34</h3>
+  </div>
+  <div id="b4" class="block">
+  	<h1>Experience <%= @user.experience %></h1>
+  	<h1>Level <%= @user.lvl %></h1>
+  </div>
+  <div class="bottom-block">
+    <div id="b5" class="block">
+    	<h1>Height: <%=  (@user.height/12).floor.to_s+'\''+((@user.height%12).to_i).to_s+'\'\'' %></h1>
+    	<h1>Weight: <%= @user.weight.to_i %> lbs</h1>
+    </div>
+    <div id="b6" class="block">
+    	<%= @user.birthday %>
+    </div>
+    <div id="b7" class="block">
+    	<% if @user.is_hydrated %>
+    	<% else %>
+    	<h1>Drink Water!</h1>
+    	<% end %>
+    </div>
+  </div>
+  
+</div>
+
+
+
+
+
+
+
 <h4>Exp: <%= @user.experience %></h4>
 <h4>Coins: <%= @user.coins %></h4>
 <h4>Height: <%=  (@user.height/12).floor.to_s+'\''+((@user.height%12).to_i).to_s+'\'\'' %></h4>
