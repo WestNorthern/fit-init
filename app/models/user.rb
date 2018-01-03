@@ -9,10 +9,12 @@ class User < ApplicationRecord
 
   def lvl # placeholder for user level algorithm
     lvl = 0
+    exp = self.experience.to_f
     if self.experience == nil
       lvl = 1
     else
-      lvl = self.experience/100
+      lvl = (0.1 * Math.sqrt(exp)).to_i
+      # lvl = sqrt(100 * (self.experience)) / 100
     end
     return lvl
   end
