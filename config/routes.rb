@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   get 'about/show'
 
+  get 'users/progress'
+
   resources :workouts
 
   resources :about, only: [:show, :index]
