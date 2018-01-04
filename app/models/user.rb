@@ -7,7 +7,8 @@ class User < ApplicationRecord
 
   has_many :hourly_scores
 
-  def lvl # placeholder for user level algorithm
+  # determines player level based on exp
+  def lvl 
     lvl = 0
     exp = self.experience.to_f
     if self.experience == nil
@@ -17,6 +18,21 @@ class User < ApplicationRecord
       # lvl = sqrt(100 * (self.experience)) / 100
     end
     return lvl
+  end
+
+  # returns an array of exp/lvl arrays, using the same algorithm from lvl
+  def self.exp_per_lvl
+    exp_to_20_arr = []
+    for i in 1..20
+
+      temp_arr = []
+      temp_arr.push(i)
+
+      exp = (i**2) * 100
+      temp_arr.push(exp)
+      exp_to_20_arr.push(temp_arr)
+    end
+    return exp_to_20_arr
   end
 
   # gets current hour in utc
@@ -44,7 +60,8 @@ class User < ApplicationRecord
 
   end
 
-  def is_hydrated # returns whether or not user has hydrated this hour
+  # returns whether or not user has hydrated this hour
+  def is_hydrated 
   	today = current_day
   	now = current_hour
 
@@ -62,8 +79,8 @@ class User < ApplicationRecord
   	return false
   end
 
-
-  def last_three # returns array of the previous three hours
+  # returns array of the previous three hours
+  def last_three 
 		now = current_hour
 		x = 3
 		arr = []
@@ -74,8 +91,8 @@ class User < ApplicationRecord
 		return arr
 	end
 
-
-  def wav # returns true if workout is available
+  # returns true if workout is available
+  def wav
   	now = current_hour
 
     if self.hourly_scores.last
@@ -98,8 +115,8 @@ class User < ApplicationRecord
   end # end of WAV
 
 
-
-  def hourbar_array # checks to see if the past three hours have been completed
+  # checks to see if the past three hours have been completed
+  def hourbar_array 
   	result_arr = []
   	today = current_day
   	three_arr = last_three
@@ -145,8 +162,8 @@ class User < ApplicationRecord
   end # end of hourbar_array
 
 
-
-  def day_score_workout(date) #returns an array with the hourly score of any given day
+  #returns an array with the hourly score of any given day
+  def day_score_workout(date) 
   	score_arr = []
   	puts "whatever this is..."
   	p self.hourly_scores.where(created_at: date.in_time_zone("Mountain Time (US & Canada)").midnight..date.in_time_zone("Mountain Time (US & Canada)").end_of_day).count
@@ -165,7 +182,8 @@ class User < ApplicationRecord
   	return score_arr.each_slice(2).to_a
   end
 
-  def day_score_hydration(date) # returns an array with hourly hydration score for a date
+  # returns an array with hourly hydration score for a date
+  def day_score_hydration(date) 
   	score_arr = []
   	hydrated_scores = []
   	scores = self.hourly_scores.where(created_at: date.in_time_zone("Mountain Time (US & Canada)").beginning_of_day..date.in_time_zone("Mountain Time (US & Canada)").end_of_day).to_a
