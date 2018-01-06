@@ -17,6 +17,7 @@
 //= require jquery_ujs
 //= require foundation
 //= require foundation-datepicker
+//= require chartkick
 //= require_tree .
 
 

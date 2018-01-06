@@ -64,5 +64,9 @@
 	<h4>Last workout: <%= @last_score.workout %></h4>
 <% end %>
 
+<%= line_chart User.group_by_day(:created_at).count %>
+
+
+
 
 <%= link_to "Edit Profile", edit_user_registration_path, class: 'button hollow warning' %>
