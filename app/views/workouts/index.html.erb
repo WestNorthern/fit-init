@@ -1,3 +1,9 @@
+<h1>Make a New Workout</h1>
+<%= link_to "New Workout", new_workout_path %>
+
+
+
+
 <h1>A list of all the workouts!</h1>
 
 <div class="workouts">
@@ -14,6 +20,9 @@
 			<%= workout.min_lvl %>
 			<br>
 			<%= workout.min_reps %>
+			<br>
+			<%= link_to "Edit Workout", edit_workout_path(workout) %>
+			<%= link_to "Delete Workout", workout_path(workout), method: :delete, class: 'delete-workout', remote: true %>
 			<br>
 		</div>
 			<br>

@@ -25,7 +25,7 @@
       <ul class="level-workouts">
         <% @workouts.where(min_lvl: level[0] - 1).each do |workout| %>
           <li>
-            O <%= workout.title %>
+            <%= workout.title %>
           </li>
         <% end %>
       </ul>

@@ -37,7 +37,7 @@
   <h1>The <%= @r_workout.title.capitalize %></h1>
   <p class="lead">Do <%= @r_workout.min_reps %> <%= @r_workout.title %>s! </p>
   <p><%= @r_workout.description %></p>
-  <%= render "workouts/form" %>
+  <%= render "hourly_scores/form" %>
   <button class="close-button" data-close aria-label="Close modal" type="button">
     <span aria-hidden="true">&times;</span>
   </button>
