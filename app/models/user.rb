@@ -7,7 +7,16 @@ class User < ApplicationRecord
 
   has_many :hourly_scores
 
+  def height_in_feet
+    (self.height / 12).floor.to_s + '\'' + ((self.height % 12).to_i).to_s + '"'
+  end
+
   # returns the user's BMI (Body Mass Index)
+  def bmi
+    weight = self.weight
+    height = self.height
+    user_bmi = ((weight / (height * height)) * 703).to_i
+  end
 
   # returns a random workout from user's available workouts
   def random_workout
