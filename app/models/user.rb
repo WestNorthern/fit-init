@@ -7,6 +7,9 @@ class User < ApplicationRecord
 
   has_many :hourly_scores
 
+  
+
+  # returns a string: height of user in feet and inches
   def height_in_feet
     (self.height / 12).floor.to_s + '\'' + ((self.height % 12).to_i).to_s + '"'
   end

@@ -39,9 +39,9 @@
         </div>
         <div class="bottom-block">
           <div id="b5" class="block">
-          	<h2>Height: <%= @user.height_in_feet %></h2>
-          	<h2>Weight: <%= @user.weight.to_i %> lbs</h2>
-            <h2>BMI: <%= @user.bmi %></h2>
+          	<h3>Height: <%= @user.height_in_feet %></h3>
+          	<h3>Weight: <%= @user.weight.to_i %> lbs</h3>
+            <h3>BMI: <%= @user.bmi %></h3>
           </div>
           <div id="b6" class="block">
           	<%= @user.birthday %>
@@ -60,19 +60,7 @@
 </div>
 
 
-<h3><%= User.exp_per_lvl %></h3>
 
-
-
-
-<h4>Exp: <%= @user.experience %></h4>
-<h4>Coins: <%= @user.coins %></h4>
-<h4>Height: <%=  (@user.height/12).floor.to_s+'\''+((@user.height%12).to_i).to_s+'\'\'' %></h4>
-<h4>Weight: <%= @user.weight.to_i %> lbs.</h4>
-<h4>Birthday: <%= @user.birthday %></h4>
-<h4>Location (in Utah): <%= @user.location %></h4>
-<h4>Age: <%= @user_age %></h4>
-<hr>
 <h3>Last Score Stuff</h3>
 <% if @user.hourly_scores.last %>
 	<h4>Last hydrated? <%= @last_score.hydrated %></h4>
@@ -87,13 +75,22 @@
 
 <%= line_chart @user.hourly_scores.group_by_day(:created_at).count %>
 
-<% @user.workout_list.each do |workout| %>
-<%= workout.title %>
-<%= @user.hourly_scores.where(workout: "#{workout.title}").count %>
 
-<% end %>
+<%= pie_chart @user.hourly_scores.group(:workout).count %>
 
-<h2><%= @user.hourly_scores.where(workout: "pushup").count %></h2>
+<div class="user-workouts">
+  <% @user.workout_list.each do |workout| %>
+    <div class="user-workout">
+      <p>
+        <%= workout.title %>: <%= @user.hourly_scores.where(workout: "#{workout.title}").count %>
+          
+        </p>
+
+      
+    </div>
+
+  <% end %>
+</div>
 
 
 

@@ -38,6 +38,7 @@
 <br>
 <hr>
 
+<%= pie_chart @user.hourly_scores.group(:workout).count %>
 
 <div class="reveal" id="workout-modal" data-reveal>
   <h1>The <%= @r_workout.title.capitalize %></h1>

@@ -1,9 +1,4 @@
 <h1>This is the progress page.</h1>
-<% @workouts.each do |wo| %>
-  <%= wo.title %>
-  <%= wo.min_lvl %>
-  <%= wo.description %>
-<% end %>
 
 <ul class="accordion" data-accordion>
 	<% User.exp_per_lvl.each do |level| %>
@@ -11,11 +6,11 @@
     <!-- Accordion tab title -->
     
     <a href="#" class="accordion-title text-center">
-    	<span class="text-left">
+    	<span class="float-left">
     		Level <%= level[0] %>
     	</span>
-    	<span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span>
-    	<span class="text-right">
+  
+    	<span class="float-right" style="margin-right: 40px;">
     		Experience Required <%= level[1] %>
     	</span>
     </a>
@@ -25,7 +20,7 @@
       <ul class="level-workouts">
         <% @workouts.where(min_lvl: level[0]).each do |workout| %>
           <li>
-            <%= workout.title %>
+            <%= workout.title.capitalize %>
           </li>
         <% end %>
       </ul>
