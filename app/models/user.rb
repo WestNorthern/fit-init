@@ -7,10 +7,10 @@ class User < ApplicationRecord
 
   has_many :hourly_scores
 
+  # returns the user's BMI (Body Mass Index)
 
   # returns a random workout from user's available workouts
   def random_workout
-    # make this rely on User.lvl
     len = self.workout_list.length
     av_workouts = self.workout_list
     @r_workout = av_workouts.limit(1 + rand(len)).last

@@ -23,7 +23,7 @@
     <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
     <div class="accordion-content" data-tab-content>
       <ul class="level-workouts">
-        <% @workouts.where(min_lvl: level[0] - 1).each do |workout| %>
+        <% @workouts.where(min_lvl: level[0]).each do |workout| %>
           <li>
             <%= workout.title %>
           </li>

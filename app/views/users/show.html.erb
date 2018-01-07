@@ -28,8 +28,9 @@
   </div>
   <div class="bottom-block">
     <div id="b5" class="block">
-    	<h1>Height: <%=  (@user.height/12).floor.to_s+'\''+((@user.height%12).to_i).to_s+'\'\'' %></h1>
-    	<h1>Weight: <%= @user.weight.to_i %> lbs</h1>
+    	<h2>Height: <%=  (@user.height/12).floor.to_s+'\''+((@user.height%12).to_i).to_s+'\'\'' %></h2>
+    	<h2>Weight: <%= @user.weight.to_i %> lbs</h2>
+      <h2></h2>
     </div>
     <div id="b6" class="block">
     	<%= @user.birthday %>

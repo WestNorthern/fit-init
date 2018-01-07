@@ -17,6 +17,7 @@ class HourlyScoresController < ApplicationController
     elsif wav(current_user) == true
       @user = current_user.hourly_scores.create(score_params)
       current_user.increment!('experience', 50)
+      current_user.increment!('coins', 50)
     end
 
   end
@@ -29,6 +30,7 @@ class HourlyScoresController < ApplicationController
     @update_score = @user.hourly_scores.last
     @update_score.update(score_params)
     current_user.increment!('experience', 50)
+    current_user.increment!('coins', 50)
 
   end
 
