@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   has_many :hourly_scores
 
-  
+  has_many :badges
 
   # returns a string: height of user in feet and inches
   def height_in_feet

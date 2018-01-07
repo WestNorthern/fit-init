@@ -26,10 +26,10 @@ class WorkoutsController < ApplicationController
     redirect_to @workout
   end
 
-  def destroy
-    Workout.find(params[:id]).destroy
-    redirect_to workouts_path
-  end
+  # def destroy
+  #   Workout.find(params[:id]).destroy
+  #   redirect_to workouts_path
+  # end
 
   def destroy
     @workout = Workout.find(params[:id])
