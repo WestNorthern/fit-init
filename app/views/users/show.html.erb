@@ -64,7 +64,21 @@
 	<h4>Last workout: <%= @last_score.workout %></h4>
 <% end %>
 
+
+
 <%= line_chart User.group_by_day(:created_at).count %>
+
+<%= line_chart @user.hourly_scores.group_by_hour(:created_at).count, curve: false %>
+
+<%= line_chart @user.hourly_scores.group_by_day(:created_at).count %>
+
+<% @user.workout_list.each do |workout| %>
+<%= workout.title %>
+<%= @user.hourly_scores.where(workout: "#{workout.title}").count %>
+
+<% end %>
+
+<h2><%= @user.hourly_scores.where(workout: "pushup").count %></h2>
 
 
 

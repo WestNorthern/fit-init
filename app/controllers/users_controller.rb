@@ -14,6 +14,8 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
     @user_age = age(@user.birthday)
     @last_score = @user.hourly_scores.last
+    @workouts = Workout.where
+    len = Workout.where("min_lvl <  5").count
   end
 
   def edit

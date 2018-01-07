@@ -5,12 +5,6 @@ class HomeController < ApplicationController
 	end
 
 
-	def randomworkout
-		# make this rely on User.lvl
-		len = Workout.where("min_lvl <  5").count
-		@r_workout = Workout.find(1 + rand(len))
-	end
-
 	def index
 		@user = current_user
 		if current_user
@@ -39,7 +33,7 @@ class HomeController < ApplicationController
 	  		@update_score = HourlyScore.new
 	  	end
 
-			@r_workout = randomworkout
+			@r_workout = @user.random_workout
 		else
 			redirect_to new_user_session_path
 		end
