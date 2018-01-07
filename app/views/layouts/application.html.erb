@@ -18,18 +18,17 @@
     <div class="multilevel-offcanvas off-canvas position-right" id="offCanvasRight" data-off-canvas>
 
       <ul class="vertical menu">
-        <li class="off-canvas-menu-item"><a href="#">Tour</a></li>
-        <li><%= link_to "Profile", user_path(current_user) %></li>
+        <li class="off-canvas-menu-item"><%= link_to "Profile", user_path(current_user) %></li>
         <li><%= link_to "Dash", root_path %></li>
         <li><%= link_to "Progress", users_progress_path %></li>
         <li><%= link_to "Badges", badges_path %></li>
       </ul>
       <ul class="vertical menu">
-         <li><%= link_to "Workouts", workouts_path %></li>
-         <li><a href="#">FAQ</a></li>
-         <li><a href="#">Terms & Conditions</a></li>
-         <li><a href="#">Careers</a></li>
-         <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to "Workouts", workouts_path %></li>
+        <li><a href="#">Store</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
       </ul>
       <ul class="menu simple social-links">
         <li><a href="#" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
