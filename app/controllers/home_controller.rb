@@ -1,9 +1,5 @@
 class HomeController < ApplicationController
 
-	def daily_score(user)
-		puts "Why broken?"
-	end
-
 
 	def index
 		@user = current_user
