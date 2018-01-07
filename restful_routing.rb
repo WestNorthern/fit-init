@@ -1,6 +1,6 @@
 yarn check v1.3.2
 success Folder in sync.
-Done in 0.17s.
+Done in 0.15s.
                   Prefix Verb   URI Pattern                       Controller#Action
               about_show GET    /about/show(.:format)             about#show
           users_progress GET    /users/progress(.:format)         users#progress

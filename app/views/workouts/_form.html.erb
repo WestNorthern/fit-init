@@ -1,9 +1,13 @@
-<%= form_with model: @update_score, id: "hourly_score", class: "custom" do |f| %>
 
-  <%= f.hidden_field :workout, :value => @r_workout.title %>
-
-  
-  <input type="submit" name="commit" value="Fit Commit!" class="hollow button secondary" id="fit-commit" data-open="exampleModal3" data-disable-with="Fit Commit!">
-
-<% end %>
+<div class="card workout_form">
+	<%= form_with model: @workout, id: "workout-form" do |f| %>
+		<%= f.text_field :title, placeholder: 'Name of Workout', class: 'title' %>
+		<%= f.text_area :description, placeholder: 'Description', class: 'description' %>
+		<%= f.select :min_lvl, @number_of_levels, include_blank: true %>
+		<%= f.select :min_reps, @number_of_reps, include_blank: true %>
+		<%= f.text_field :video_url, placeholder: 'Video URL', class: 'video_url' %>
+		<%= f.submit class: "hollow button secondary" %>
+	<% end %>
+	<br>
+</div>
 

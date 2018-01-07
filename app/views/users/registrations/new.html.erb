@@ -6,6 +6,7 @@
         <%= devise_error_messages! %>
 
         <%= f.hidden_field :difficulty, value: "easy" %>
+        <%= f.hidden_field :coins, value: 200 %>
 
         <div class="field">
           <%= f.label :username %><br />
@@ -24,7 +25,7 @@
         <div class="field">
           <%= f.label :birthday %><br />
         
-          <%= f.date_field :birthday, :class => 'validate span2', id: 'birthday', placeholder: 'MM/DD/YYYY', :required => true %>
+          <%= f.date_field :birthday, :class => 'validat', id: 'birth', placeholder: 'MM/DD/YYYY', :required => true %>
         </div>
 
         <div class="field">

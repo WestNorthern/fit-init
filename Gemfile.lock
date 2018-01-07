@@ -49,15 +49,14 @@ GEM
     bindex (0.5.0)
     builder (3.2.3)
     byebug (9.1.0)
-    capybara (2.16.1)
+    capybara (2.17.0)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
-      xpath (~> 2.0)
-    chart (0.1.4.9)
-      rails
+      xpath (>= 2.0, < 4.0)
+    chartkick (2.2.5)
     childprocess (0.8.0)
       ffi (~> 1.0, >= 1.0.11)
     city-state (0.0.13)
@@ -72,7 +71,7 @@ GEM
     concurrent-ruby (1.0.5)
     connection_pool (2.2.1)
     crass (1.0.3)
-    devise (4.3.0)
+    devise (4.4.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 4.1.0, < 5.2)
@@ -91,6 +90,8 @@ GEM
       sprockets-es6 (>= 0.9.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    groupdate (3.2.0)
+      activesupport (>= 3)
     i18n (0.9.1)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
@@ -115,9 +116,9 @@ GEM
     method_source (0.9.0)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
-    minitest (5.10.3)
+    minitest (5.11.1)
     multi_json (1.12.2)
-    nio4r (2.1.0)
+    nio4r (2.2.0)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
@@ -202,7 +203,7 @@ GEM
     turbolinks-source (5.0.3)
     tzinfo (1.2.4)
       thread_safe (~> 0.1)
-    uglifier (4.0.2)
+    uglifier (4.1.2)
       execjs (>= 0.3.0, < 3)
     warden (1.2.7)
       rack (>= 1.0)
@@ -218,8 +219,8 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
-    xpath (2.1.0)
-      nokogiri (~> 1.3)
+    xpath (3.0.0)
+      nokogiri (~> 1.8)
 
 PLATFORMS
   ruby
@@ -227,13 +228,14 @@ PLATFORMS
 DEPENDENCIES
   byebug
   capybara (~> 2.13)
-  chart
+  chartkick
   city-state
   coffee-rails (~> 4.2)
   devise
   foundation-datepicker-rails
   foundation-icons-sass-rails
   foundation-rails
+  groupdate
   jbuilder (~> 2.5)
   jquery-rails
   jquery-turbolinks

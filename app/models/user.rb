@@ -7,6 +7,34 @@ class User < ApplicationRecord
 
   has_many :hourly_scores
 
+  
+
+  # returns a string: height of user in feet and inches
+  def height_in_feet
+    (self.height / 12).floor.to_s + '\'' + ((self.height % 12).to_i).to_s + '"'
+  end
+
+  # returns the user's BMI (Body Mass Index)
+  def bmi
+    weight = self.weight
+    height = self.height
+    user_bmi = ((weight / (height * height)) * 703).to_i
+  end
+
+  # returns a random workout from user's available workouts
+  def random_workout
+    len = self.workout_list.length
+    av_workouts = self.workout_list
+    @r_workout = av_workouts.limit(1 + rand(len)).last
+    # @r_workout = Workout.find(1 + rand(len))
+  end
+
+  # returns a list of workouts available to the user
+  def workout_list
+    user_lvl = self.lvl
+    workouts = Workout.where("min_lvl <= #{user_lvl}")
+  end
+
   # determines player level based on exp
   def lvl 
     lvl = 0
