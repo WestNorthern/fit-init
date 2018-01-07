@@ -1,5 +1,9 @@
 <h1>This is the progress page.</h1>
-
+<% @workouts.each do |wo| %>
+  <%= wo.title %>
+  <%= wo.min_lvl %>
+  <%= wo.description %>
+<% end %>
 
 <ul class="accordion" data-accordion>
 	<% User.exp_per_lvl.each do |level| %>
@@ -18,7 +22,13 @@
 
     <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
     <div class="accordion-content" data-tab-content>
-      <p>Panel 1. Lorem ipsum dolor</p>
+      <ul class="level-workouts">
+        <% @workouts.where(min_lvl: level[0] - 1).each do |workout| %>
+          <li>
+            O <%= workout.title %>
+          </li>
+        <% end %>
+      </ul>
       <a href="#">Nowhere to Go</a>
     </div>
   </li>

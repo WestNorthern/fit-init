@@ -38,6 +38,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def progress
+    @workouts = Workout.all
+  end
+
 
   private
 
