@@ -1,6 +1,9 @@
 <div class="progress-background">
   <div class="row">
     <div class="grid-x">
+      <div class="small-12 columns">&nbsp;</div>
+    </div>
+    <div class="grid-x">
       <div class="small-3 columns">
       </div>
       <div class="small-7 columns">
@@ -24,11 +27,10 @@
               <ul class="level-workouts">
                 <% @workouts.where(min_lvl: level[0]).each do |workout| %>
                   <li>
-                    <%= workout.title.capitalize %>
+                    <%= link_to workout.title, workout, class: 'button hollow' %>
                   </li>
                 <% end %>
               </ul>
-              <a href="#">Nowhere to Go</a>
             </div>
           </li>
           <% end %>
