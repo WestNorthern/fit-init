@@ -9,6 +9,16 @@ class User < ApplicationRecord
 
   has_many :badges
 
+  # returns the percentage of experience gained in current level towards next level
+  def level_percent
+    next_level = (self.lvl) + 1
+    last_level_exp = ((self.lvl) ** 2) * 100
+    current_progress = self.experience - last_level_exp
+    exp_in_level = ((next_level ** 2) * 100) - last_level_exp
+    completion_percent = (exp_in_level / current_progress) * 10
+
+  end
+
   # returns a string: height of user in feet and inches
   def height_in_feet
     (self.height / 12).floor.to_s + '\'' + ((self.height % 12).to_i).to_s + '"'

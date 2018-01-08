@@ -7,15 +7,11 @@ class WorkoutButton extends React.Component {
   render() {
     if(this.props.wav == true){
       return(
-      	<div className="workout-button">
-      		<button className="hollow button success" href="#" data-open="workout-modal">Work out!</button>
-        </div>
+      	<button className="hollow button success" href="#" data-open="workout-modal">Work out!</button>
       );
     } else {
       return(
-        <div className="workout-button">
-          <button className="hollow button alert disabled" href="#">You rock!</button>
-        </div>
+        <button className="hollow button alert disabled" href="#">You rock!</button>
       );
     }
   }
