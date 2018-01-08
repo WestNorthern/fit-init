@@ -3,8 +3,13 @@
 	<%= form_with model: @workout, id: "workout-form" do |f| %>
 		<%= f.text_field :title, placeholder: 'Name of Workout', class: 'title' %>
 		<%= f.text_area :description, placeholder: 'Description', class: 'description' %>
+		<%= f.label :min_lvl, 'Minimum Level' %>
 		<%= f.select :min_lvl, @number_of_levels, include_blank: true %>
+		<%= f.label :min_reps, 'Minimum Number of Repetitions' %>
 		<%= f.select :min_reps, @number_of_reps, include_blank: true %>
+		<%= f.label :wiki_link, 'Wikipedia URL' %>
+		<%= f.text_area :wiki_link, placeholder: 'Wiki URL', class: 'wiki_link' %>
+		<%= f.label :video_url, 'Video (or GIF) URL' %>
 		<%= f.text_field :video_url, placeholder: 'Video URL', class: 'video_url' %>
 		<%= f.submit class: "hollow button secondary" %>
 	<% end %>

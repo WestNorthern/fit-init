@@ -1,13 +1,18 @@
-<h1>Workouts#show</h1>
-<p>Find me in app/views/workouts/show.html.erb</p>
+<div class="workout-background">
+	<div class="row">
+		<div class="grid-x">
+			<div class="small-12">&nbsp;</div>
+		</div>
+		<div class="grid-x">
+			<div class="small-1 columns"></div>
+			<div class="small-10 columns card">
+				<%= render @workout %>
+			</div>
+			<div class="small-1 columns"></div>
+		</div>
+	</div>
+</div>
 
 
-<h1><%= @workout.title %></h1>
-<small><%= @workout.description %></small>
-<hr>
-<br>
-<h4>Min Level: <%= @workout.min_lvl %></h4>
-<h4>Min Reps: <%= @workout.min_reps %></h4>
-<h4>Video Url: <%= @workout.video_url %></h4>
 
 

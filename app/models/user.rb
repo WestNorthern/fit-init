@@ -15,7 +15,7 @@ class User < ApplicationRecord
     last_level_exp = ((self.lvl) ** 2) * 100
     current_progress = self.experience - last_level_exp
     exp_in_level = ((next_level ** 2) * 100) - last_level_exp
-    completion_percent = (exp_in_level / current_progress) * 10
+    completion_percent = (current_progress.to_f/exp_in_level.to_f) * 100
 
   end
 
