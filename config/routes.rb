@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :badges
+
   get 'about/show'
 
   get 'users/progress'

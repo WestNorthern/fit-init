@@ -1,32 +1,43 @@
-<h1>This is the progress page.</h1>
-
-<ul class="accordion" data-accordion>
-	<% User.exp_per_lvl.each do |level| %>
-  <li class="accordion-item <% if current_user.lvl == level[0] %> is-active player-level<% end %>" data-accordion-item>
-    <!-- Accordion tab title -->
-    
-    <a href="#" class="accordion-title text-center">
-    	<span class="float-left">
-    		Level <%= level[0] %>
-    	</span>
-  
-    	<span class="float-right" style="margin-right: 40px;">
-    		Experience Required <%= level[1] %>
-    	</span>
-    </a>
-
-    <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
-    <div class="accordion-content" data-tab-content>
-      <ul class="level-workouts">
-        <% @workouts.where(min_lvl: level[0]).each do |workout| %>
-          <li>
-            <%= workout.title.capitalize %>
-          </li>
-        <% end %>
-      </ul>
-      <a href="#">Nowhere to Go</a>
+<div class="progress-background">
+  <div class="row">
+    <div class="grid-x">
+      <div class="small-12 columns">&nbsp;</div>
     </div>
-  </li>
-  <% end %>
-  <!-- ... -->
-</ul>
+    <div class="grid-x">
+      <div class="small-3 columns">
+      </div>
+      <div class="small-7 columns">
+        <ul class="accordion" data-accordion>
+          <% User.exp_per_lvl.each do |level| %>
+          <li class="accordion-item <% if current_user.lvl == level[0] %> is-active player-level<% end %>" data-accordion-item>
+            <!-- Accordion tab title -->
+            
+            <a href="#" class="accordion-title text-center">
+              <span class="float-left">
+                Level <%= level[0] %>
+              </span>
+          
+              <span class="float-right" style="margin-right: 40px;">
+                Experience Required <%= level[1] %>
+              </span>
+            </a>
+
+            <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
+            <div class="accordion-content" data-tab-content>
+              <ul class="level-workouts">
+                <% @workouts.where(min_lvl: level[0]).each do |workout| %>
+                  <li>
+                    <%= link_to workout.title, workout, class: 'button hollow' %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </li>
+          <% end %>
+          <!-- ... -->
+        </ul>
+      </div>
+      <div class="small-2 columns"></div>
+    </div>
+  </div>
+</div>

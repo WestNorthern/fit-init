@@ -1,7 +1,15 @@
 yarn check v1.3.2
 success Folder in sync.
-Done in 0.15s.
+Done in 0.18s.
                   Prefix Verb   URI Pattern                       Controller#Action
+                  badges GET    /badges(.:format)                 badges#index
+                         POST   /badges(.:format)                 badges#create
+               new_badge GET    /badges/new(.:format)             badges#new
+              edit_badge GET    /badges/:id/edit(.:format)        badges#edit
+                   badge GET    /badges/:id(.:format)             badges#show
+                         PATCH  /badges/:id(.:format)             badges#update
+                         PUT    /badges/:id(.:format)             badges#update
+                         DELETE /badges/:id(.:format)             badges#destroy
               about_show GET    /about/show(.:format)             about#show
           users_progress GET    /users/progress(.:format)         users#progress
                 workouts GET    /workouts(.:format)               workouts#index

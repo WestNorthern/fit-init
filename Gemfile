@@ -79,3 +79,7 @@ gem 'foundation-datepicker-rails'
 gem 'chartkick'
 
 gem 'groupdate'
+
+gem 'font-awesome-rails'
+
+gem 'timepiece'

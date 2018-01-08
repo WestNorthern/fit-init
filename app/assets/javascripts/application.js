@@ -18,6 +18,7 @@
 //= require foundation
 //= require foundation-datepicker
 //= require chartkick
+//= require timepiece
 //= require_tree .
 
 

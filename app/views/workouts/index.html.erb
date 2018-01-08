@@ -21,8 +21,11 @@
 			<br>
 			<%= workout.min_reps %>
 			<br>
-			<%= link_to "Edit Workout", edit_workout_path(workout) %>
-			<%= link_to "Delete Workout", workout_path(workout), method: :delete, class: 'delete-workout', remote: true %>
+			<%= link_to "View Workout", workout, class: 'button hollow' %>
+			<br>
+			<%= link_to "Edit Workout", edit_workout_path(workout), class: 'button hollow' %>
+			<br>
+			<%= link_to "Delete Workout", workout_path(workout), method: :delete, class: 'delete-workout', remote: true, class: 'button hollow' %>
 			<br>
 		</div>
 			<br>

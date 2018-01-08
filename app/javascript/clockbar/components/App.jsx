@@ -109,8 +109,9 @@ class App extends React.Component {
         	<br/>
 
         	<div className="text-center">
-            <WorkoutButton wav={this.props.wav}   />
-        		<HydrateButton hydrated={this.props.hydrated}   />
+            <WorkoutButton wav={this.props.wav} />
+            &nbsp;
+        		<HydrateButton hydrated={this.props.hydrated} />
         	</div>
         </div>
         <DailyScoreBox dayScoreArray={this.props.dayScoreArray} />

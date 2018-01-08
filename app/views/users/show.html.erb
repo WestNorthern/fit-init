@@ -1,98 +1,100 @@
-<div class="row">
-  <div class="grid-x">
-    <div class="small-12 columns">
-      &nbsp;
+
+<div class="profile-background">
+  <div class="row">
+    <div class="grid-x">
+      <div class="small-12 columns">
+        &nbsp;
+      </div>
     </div>
   </div>
-</div>
-<div class="row">
-  <div class="grid-x">
-    <div class="small-1 columns"></div>
-    <div class="small-10 columns card">
+  <div class="row">
+    <div class="grid-x">
+      <div class="small-1 columns"></div>
+      <div class="small-10 columns card">
 
-      <div class="header-grid">
-        <div id="b1" class="block">
-      		<% if @user.id == current_user.id %>
-      			<h1>Hey, <%= @user.username %></h1>
-      			<h3>from <%= @user.location %>!</h3>
-      		<% else %>
-      			<h1>This is <%= @user.username %>'s Profile</h1>
-      		<% end %>
-        </div>
-        <div id="b2" class="block">
-        	<% if @user.gender == 'Male' %>
-        		<%= image_tag("male_inv", height: '160', width: '160', text_align: 'right')  %>
-        	<% elsif @user.gender == 'Female' %>
-        		<%= image_tag("female_inv", height: '150', width: '150', text_align: 'right') %>
-        	<% elsif @user.gender == 'NA' %>
-        		<%= image_tag("prince", height: '150', width: '150') %>
-        	<% else %>
-        		<%= image_tag("prince", height: '150', width: '150') %>
-        	<% end %>
-        </div>
-        <div id="b3" class="block">
-        	<h3>What should go here?</h3>
-        </div>
-        <div id="b4" class="block">
-        	<h1>Experience <%= @user.experience %></h1>
-        	<h1>Level <%= @user.lvl %></h1>
-        </div>
-        <div class="bottom-block">
-          <div id="b5" class="block">
-          	<h3>Height: <%= @user.height_in_feet %></h3>
-          	<h3>Weight: <%= @user.weight.to_i %> lbs</h3>
-            <h3>BMI: <%= @user.bmi %></h3>
+        <div class="header-grid">
+          <div id="b1" class="block">
+        		<% if @user.id == current_user.id %>
+        			<h1>Hey, <%= @user.username %></h1>
+        			<h3>from <%= @user.location %>!</h3>
+        		<% else %>
+        			<h1>This is <%= @user.username %>'s Profile</h1>
+        		<% end %>
           </div>
-          <div id="b6" class="block">
-          	<%= @user.birthday %>
-          </div>
-          <div id="b7" class="block">
-          	<% if @user.is_hydrated %>
+          <div id="b2" class="block">
+          	<% if @user.gender == 'Male' %>
+          		<%= image_tag("male_inv", height: '160', width: '160', text_align: 'right')  %>
+          	<% elsif @user.gender == 'Female' %>
+          		<%= image_tag("female_inv", height: '150', width: '150', text_align: 'right') %>
+          	<% elsif @user.gender == 'NA' %>
+          		<%= image_tag("prince", height: '150', width: '150') %>
           	<% else %>
-          	<h1>Drink Water!</h1>
+          		<%= image_tag("prince", height: '150', width: '150') %>
           	<% end %>
+          </div>
+          <div id="b3" class="block">
+          	<h1 id="ruby-clock"><%= timepiece("America/Denver") %></h1>
+          </div>
+          <div id="b4" class="block">
+          	<h1>Experience <%= @user.experience %></h1>
+          	<h1>Level <%= @user.lvl %></h1>
+          </div>
+          <div class="bottom-block">
+            <div id="b5" class="block">
+            	<h3>Height: <%= @user.height_in_feet %></h3>
+            	<h3>Weight: <%= @user.weight.to_i %> lbs</h3>
+              <h3>BMI: <%= @user.bmi %></h3>
+            </div>
+            <div id="b6" class="block">
+            	<%= @user.birthday %>
+            </div>
+            <div id="b7" class="block">
+            	<% if @user.is_hydrated %>
+            	<% else %>
+            	<h1>Drink Water!</h1>
+            	<% end %>
+            </div>
           </div>
         </div>
       </div>
+      <div class="small-1 columns"></div>
     </div>
-    <div class="small-1 columns"></div>
   </div>
-</div>
 
 
 
-<h3>Last Score Stuff</h3>
-<% if @user.hourly_scores.last %>
-	<h4>Last hydrated? <%= @last_score.hydrated %></h4>
-	<h4>Last workout: <%= @last_score.workout %></h4>
-<% end %>
-
-
-
-<%= line_chart User.group_by_day(:created_at).count %>
-
-<%= line_chart @user.hourly_scores.group_by_hour(:created_at).count, curve: false %>
-
-<%= line_chart @user.hourly_scores.group_by_day(:created_at).count %>
-
-
-<%= pie_chart @user.hourly_scores.group(:workout).count %>
-
-<div class="user-workouts">
-  <% @user.workout_list.each do |workout| %>
-    <div class="user-workout">
-      <p>
-        <%= workout.title %>: <%= @user.hourly_scores.where(workout: "#{workout.title}").count %>
-          
-        </p>
-
-      
-    </div>
-
+  <h3>Last Score Stuff</h3>
+  <% if @user.hourly_scores.last %>
+  	<h4>Last hydrated? <%= @last_score.hydrated %></h4>
+  	<h4>Last workout: <%= @last_score.workout %></h4>
   <% end %>
+
+
+
+  <%= line_chart User.group_by_day(:created_at).count %>
+
+  <%= line_chart @user.hourly_scores.group_by_hour(:created_at).count, curve: false %>
+
+  <%= line_chart @user.hourly_scores.group_by_day(:created_at).count %>
+
+
+  <%= pie_chart @user.hourly_scores.group(:workout).count %>
+
+  <div class="user-workouts">
+    <% @user.workout_list.each do |workout| %>
+      <div class="user-workout">
+        <p>
+          <%= workout.title %>: <%= @user.hourly_scores.where(workout: "#{workout.title}").count %>
+            
+          </p>
+
+        
+      </div>
+
+    <% end %>
+  </div>
+
 </div>
-
-
 
 
 <%= link_to "Edit Profile", edit_user_registration_path, class: 'button hollow warning' %>

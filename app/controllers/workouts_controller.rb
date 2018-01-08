@@ -26,10 +26,10 @@ class WorkoutsController < ApplicationController
     redirect_to @workout
   end
 
-  def destroy
-    Workout.find(params[:id]).destroy
-    redirect_to workouts_path
-  end
+  # def destroy
+  #   Workout.find(params[:id]).destroy
+  #   redirect_to workouts_path
+  # end
 
   def destroy
     @workout = Workout.find(params[:id])
@@ -48,7 +48,7 @@ class WorkoutsController < ApplicationController
   private
 
   def workout_params
-    params.require(:workout).permit(:title, :description, :min_lvl, :min_reps, :video_url)
+    params.require(:workout).permit(:title, :description, :min_lvl, :min_reps, :video_url, :wiki_link)
   end
 
 end

@@ -1,0 +1,9 @@
+<h1><%= workout.title %></h1>
+<small><%= workout.description %></small>
+<hr>
+<br>
+<h4>Min Level: <%= workout.min_lvl %></h4>
+<h4>Min Reps: <%= workout.min_reps %></h4>
+<div class="responsive-embed">
+  <iframe width="300px" height="275px" src="<%= workout.video_url %>" frameborder="0" allowfullscreen></iframe>
+</div>
